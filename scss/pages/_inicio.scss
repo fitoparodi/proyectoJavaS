@@ -1,0 +1,35 @@
+body {
+    background: gray;
+}
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.contenedor {
+
+    background-color: burlywood;
+    border: 2px solid gold;
+    border-radius: 15px;
+    width: 95%;
+    height: 500px;
+    display: block;
+    align-items: center;
+
+
+    @media (min-width: 500px){
+        width: 500px;
+    }
+
+    h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+        margin-top: 5px;
+        text-shadow: -2px 2px wheat;
+    }
+
+
+}
