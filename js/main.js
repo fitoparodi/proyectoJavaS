@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("button").addEventListener("click", agregarDispositivo);
 });
 
-function agregarDispositivo() {
+function agregarDispositivo(event) {
+    event.preventDefault()
+
     let nombre = document.getElementById("dispositivo").value.trim();
     let consumoSelect = document.getElementById("consumo").value;
     let consumoManual = document.getElementById("consumoManual").value.trim();
@@ -36,7 +38,7 @@ function agregarDispositivo() {
     
     document.getElementById("items").appendChild(item);
 
-    // Limpiar campos
+
     document.getElementById("dispositivo").value = "";
     document.getElementById("consumoManual").value = "";
     document.getElementById("consumo").value = "";

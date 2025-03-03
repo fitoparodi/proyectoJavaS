@@ -1,35 +1,81 @@
 body {
     background: gray;
+    font-family: Arial, sans-serif;
 }
-main{
+
+main {
     display: flex;
     justify-content: center;
     margin-top: 25px;
 }
 
 .contenedor {
-
     background-color: burlywood;
     border: 2px solid gold;
     border-radius: 15px;
     width: 95%;
-    height: 500px;
-    display: block;
-    align-items: center;
+    max-width: 500px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
 
+h1 {
+    text-align: center;
+    color: black;
+    text-shadow: -2px 2px wheat;
+}
 
-    @media (min-width: 500px){
-        width: 500px;
-    }
+/* Estiliza el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre elementos */
+}
 
-    h1 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: black;
-        margin-top: 5px;
-        text-shadow: -2px 2px wheat;
-    }
+label {
+    font-weight: bold;
+}
 
+/* Inputs y select con buen tamaño */
+input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
 
+/* Botón con buen diseño */
+button {
+    padding: 10px;
+    background: goldenrod;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: darkgoldenrod;
+}
+
+/* Estilo para los dispositivos agregados */
+.lista {
+    margin-top: 20px;
+}
+
+#items {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    background: lightgray;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
 }
