@@ -12,7 +12,8 @@ body {
 main {
   display: flex;
   justify-content: center;
-  margin-top: 25px;
+  align-items: center;
+  height: 100vh;
 }
 
 .contenedor {
@@ -23,6 +24,7 @@ main {
   max-width: 500px;
   padding: 20px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 h1 {
@@ -31,26 +33,28 @@ h1 {
   text-shadow: -2px 2px wheat;
 }
 
-/* Estiliza el formulario */
+h3 {
+  margin-top: 15px;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Espacio entre elementos */
+  gap: 10px;
 }
 
 label {
   font-weight: bold;
 }
 
-/* Inputs y select con buen tamaño */
 input, select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  width: 100%;
 }
 
-/* Botón con buen diseño */
 button {
   padding: 10px;
   background: goldenrod;
@@ -60,30 +64,39 @@ button {
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.3s;
+  width: 100%;
+  margin-top: 10px;
 }
 
 button:hover {
   background: darkgoldenrod;
 }
 
-/* Estilo para los dispositivos agregados */
-.lista {
-  margin-top: 20px;
-}
-
-#items {
-  background: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.item {
+/* Opciones de vehículos */
+.opciones {
   display: flex;
-  justify-content: space-between;
-  background: lightgray;
-  padding: 5px;
+  justify-content: space-around;
+  margin: 15px 0;
+}
+
+.opcion {
+  text-align: center;
+}
+
+.opcion img {
+  border: 3px solid white;
+  border-radius: 5px;
+  width: 220px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.opcion label {
+  display: block;
+  font-weight: bold;
   margin-top: 5px;
-  border-radius: 3px;
 }
 
 /*# sourceMappingURL=styles.css.map */

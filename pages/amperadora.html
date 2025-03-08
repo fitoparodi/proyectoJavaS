@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/styles.css">
+    <title>Amperadora - Tu calculadora de amperes para equipar tu motorhome - embarcación</title>
+</head>
+<body>
+
+<main>
+<div class="contenedor">
+    <h1>AMPERADORA</h1>
+    <form>
+    <label for="dispositivo">Dispositivo:</label>
+    <input type="text" id="dispositivo" placeholder="Ejemplo: Heladera">
+
+    <label for="consumo">Consumo en amperes:</label>
+    <select id="consumo">
+        <option value="">Ingresa un valor o selecciona</option>
+        <option value="no_lo_se">No lo sé</option>
+    </select>
+    <input type="number" id="consumoManual" placeholder="Ejemplo: 5" min="0">
+
+    <button>Agregar</button>
+
+    <div class="lista" id="listaDispositivos">
+        <h3>Dispositivos Agregados:</h3>
+        <div id="items"></div>
+    </div>
+    </form>
+</div>
+
+</main>
+<script src="./../js/main.js">
+</script>
+</body>
+</html>

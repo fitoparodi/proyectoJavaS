@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Amperadora - Tu calculadora de amperes para equipar tu motorhome - embarcación</title>
+    <title>Amperadora - Calculadora de Amperes</title>
 </head>
 <body>
 
-<main>
-<div class="contenedor">
-    <h1>AMPERADORA</h1>
-    <form>
-    <label for="dispositivo">Dispositivo:</label>
-    <input type="text" id="dispositivo" placeholder="Ejemplo: Heladera">
+    <main>
+        <div class="contenedor">
+            <h1>Bienvenido a Amperadora</h1>
+            <h2 id="mensajeBienvenida"></h2>
 
-    <label for="consumo">Consumo en amperes:</label>
-    <select id="consumo">
-        <option value="">Ingresa un valor o selecciona</option>
-        <option value="no_lo_se">No lo sé</option>
-    </select>
-    <input type="number" id="consumoManual" placeholder="Ejemplo: 5" min="0">
+            <div id="formulario">
+                <label for="nombre">Ingresa tu nombre:</label>
+                <input type="text" id="nombre" placeholder="Tu nombre">
 
-    <button>Agregar</button>
+                <h3>Selecciona tu vehículo:</h3>
+                <div class="opciones">
+                    <div class="opcion">
+                        <img src="img/motorhome.webp" alt="Motorhome">
+                        <label>
+                            <input type="radio" name="tipoVehiculo" value="motorhome"> Motorhome
+                        </label>
+                    </div>
+                    <div class="opcion">
+                        <img src="img/embarcacion.jpg" alt="Embarcación">
+                        <label>
+                            <input type="radio" name="tipoVehiculo" value="embarcacion"> Embarcación
+                        </label>
+                    </div>
+                </div>
 
-    <div class="lista" id="listaDispositivos">
-        <h3>Dispositivos Agregados:</h3>
-        <div id="items"></div>
-    </div>
-    </form>
-</div>
+                <label for="nombreVehiculo">Asigna un nombre a tu vehículo:</label>
+                <input type="text" id="nombreVehiculo" placeholder="Nombre del vehículo">
 
-</main>
-<script src="./js/main.js">
-</script>
+                <button id="guardar">Comenzar</button>
+            </div>
+
+            <div id="bienvenida" style="display: none;">
+                <p id="mensaje"></p>
+                <button id="continuar">Continuar con este proyecto</button>
+                <button id="nuevo">Iniciar un nuevo proyecto</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+
 </body>
 </html>
