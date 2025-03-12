@@ -7,9 +7,11 @@ const valoresPorDefecto = {
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("button").addEventListener("click", agregarDispositivo);
 
-    document.addEventListener("popstate", function(event) {
-        window.location.reload();
-        console.log("pagina RECARGADA")
+    
+    history.pushState(null, null, location.href);
+
+    window.addEventListener("popstate", function () {
+        location.reload();
     });
     
 });
