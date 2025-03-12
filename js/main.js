@@ -1,35 +1,34 @@
-// Definir valores por defecto
-const valoresPorDefecto = {
-    "no_lo_se": 3 // Si el usuario pone "No lo sé", se asigna 3A por defecto
-};
-
-// Esperar a que cargue el DOM antes de ejecutar
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("button").addEventListener("click", agregarDispositivo);
 
-    document.addEventListener("popstate", function(event) {
-        window.location.reload();  // Recarga la página
+    //probando volver
+    history.pushState(null, null, location.href);
+
+    window.addEventListener("popstate", function () {
+        let confirmacion = confirm("Usted está abandonando su proyecto. Los cambios serán guardados. ¿Desea continuar?");
+        if (confirmacion) {
+            window.location.href = "./../index.html";
+        } else {
+            history.pushState(null, null, location.href);
+        }
     });
-    
-});
+}); 
 
 function agregarDispositivo(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     let nombre = document.getElementById("dispositivo").value.trim();
-    let consumoSelect = document.getElementById("consumo").value;
     let consumoManual = document.getElementById("consumoManual").value.trim();
-    
+
     if (nombre === "") {
-        alert("Por favor, ingresa un nombre para el dispositivo.");
-        return;
+       mostrarMensaje("puto")
     }
 
     let consumo;
     if (consumoManual !== "") {
         consumo = parseFloat(consumoManual);
     } else {
-        consumo = valoresPorDefecto[consumoSelect] || 0; 
+        consumo = valoresPorDefecto[consumoSelect] || 0;
     }
 
     if (isNaN(consumo) || consumo < 0) {
@@ -40,9 +39,8 @@ function agregarDispositivo(event) {
     let item = document.createElement("div");
     item.classList.add("item");
     item.innerHTML = `<span>${nombre}</span> <span>${consumo} A</span>`;
-    
-    document.getElementById("items").appendChild(item);
 
+    document.getElementById("items").appendChild(item);
 
     document.getElementById("dispositivo").value = "";
     document.getElementById("consumoManual").value = "";
