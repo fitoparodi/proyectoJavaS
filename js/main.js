@@ -1,3 +1,7 @@
+document.addEventListener("popstate", function(event) {
+    window.location.reload();  // Recarga la página
+});
+
 // Definir valores por defecto
 const valoresPorDefecto = {
     "no_lo_se": 3 // Si el usuario pone "No lo sé", se asigna 3A por defecto
