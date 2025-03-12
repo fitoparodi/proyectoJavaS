@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("button").addEventListener("click", agregarDispositivo);
 
     document.addEventListener("popstate", function(event) {
-        window.location.reload();  // Recarga la página
+        window.location.reload();
+        console.log("pagina RECARGADA")
     });
     
 });
