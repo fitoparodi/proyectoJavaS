@@ -11,7 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             history.pushState(null, null, location.href);
         }
+
+    history.pushState(null, null, location.href);
+
+    window.addEventListener("popstate", function () {
+        location.reload();
+
     });
+});
 }); 
 
 function agregarDispositivo(event) {
@@ -27,9 +34,7 @@ function agregarDispositivo(event) {
     let consumo;
     if (consumoManual !== "") {
         consumo = parseFloat(consumoManual);
-    } else {
-        consumo = valoresPorDefecto[consumoSelect] || 0;
-    }
+    } 
 
     if (isNaN(consumo) || consumo < 0) {
         alert("Ingresa un consumo válido.");
