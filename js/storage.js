@@ -3,43 +3,87 @@ document.addEventListener("DOMContentLoaded", () => {
     const bienvenida = document.getElementById("bienvenida");
     const mensajeBienvenida = document.getElementById("mensajeBienvenida");
     const mensaje = document.getElementById("mensaje");
+    const opciones = document.querySelectorAll(".opcion img");
+    let vehiculoSeleccionado = null;
 
-    // Verificar si hay datos guardados en localStorage
+    //mensaje de campos vacios
+    function mostrarMensaje(texto) {
+        const mensajeEmergente = document.getElementById("mensajeEmergente");
+        const mensajeTexto = document.getElementById("mensajeTexto");
+
+        mensajeTexto.innerText = texto;
+        mensajeEmergente.style.display = "block";
+    }
+
+    document.getElementById("cerrarMensaje").addEventListener("click", () => {
+        document.getElementById("mensajeEmergente").style.display = "none";
+    });
+
+
+
+    //verificar si existe usuario
     const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
 
     if (datosGuardados) {
-        // Si hay datos guardados, mostrar la pantalla de bienvenida
+
         formulario.style.display = "none";
         bienvenida.style.display = "block";
         mensajeBienvenida.innerText = `Bienvenido, ${datosGuardados.nombre}!`;
         mensaje.innerText = `¿Te gustaría continuar con tu ${datosGuardados.tipoVehiculo} llamado "${datosGuardados.nombreVehiculo}" o iniciar uno nuevo?`;
+
     } else {
-        // Si no hay datos guardados, mostrar el formulario
+
         formulario.style.display = "block";
         bienvenida.style.display = "none";
     }
 
-    // Guardar los datos y redirigir a amperadora.html
+    // seleccion de imagenes
+    opciones.forEach((img) => {
+
+        img.addEventListener("click", function () {
+
+            opciones.forEach((imagen) => imagen.classList.remove("seleccionado"));
+            this.classList.add("seleccionado");
+
+            vehiculoSeleccionado = this.alt;
+        });
+    });
+
+
+    // guardar
     document.getElementById("guardar").addEventListener("click", () => {
+
         const nombre = document.getElementById("nombre").value;
-        const tipoVehiculo = document.getElementById("tipoVehiculo").value;
         const nombreVehiculo = document.getElementById("nombreVehiculo").value;
 
-        if (nombre && nombreVehiculo) {
-            const usuario = { nombre, tipoVehiculo, nombreVehiculo };
-            localStorage.setItem("usuario", JSON.stringify(usuario));
-            window.location.href = "pages/amperadora.html";
+        if (nombre == null || nombre === "") {
+
+            mostrarMensaje("Completá tu nombre!")
+
+        } else if (nombreVehiculo == null || nombreVehiculo === "") {
+
+            mostrarMensaje("Completá el nombre del vehículo")
+
+        } else if (vehiculoSeleccionado === null) {
+
+            mostrarMensaje("Seleccioná un vehículo")
+
         } else {
-            alert("Por favor, completa todos los campos.");
+
+            const usuario = { nombre, tipoVehiculo: vehiculoSeleccionado, nombreVehiculo };
+            localStorage.setItem("usuario", JSON.stringify(usuario));
+            window.location.href = "./pages/amperadora.html";
+
         }
     });
 
-    // Continuar con el proyecto guardado
+
+    //continuar
     document.getElementById("continuar").addEventListener("click", () => {
-        window.location.href = "pages/amperadora.html";
+        window.location.href = "./pages/amperadora.html";
     });
 
-    // Iniciar un nuevo proyecto
+    //nuevo
     document.getElementById("nuevo").addEventListener("click", () => {
         localStorage.removeItem("usuario");
         location.reload();

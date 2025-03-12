@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Amperadora - Calculadora de Amperes</title>
 </head>
+
 <body>
 
     <main>
@@ -21,15 +23,9 @@
                 <div class="opciones">
                     <div class="opcion">
                         <img src="img/motorhome.webp" alt="Motorhome">
-                        <label>
-                            <input type="radio" name="tipoVehiculo" value="motorhome"> Motorhome
-                        </label>
                     </div>
                     <div class="opcion">
                         <img src="img/embarcacion.jpg" alt="Embarcación">
-                        <label>
-                            <input type="radio" name="tipoVehiculo" value="embarcacion"> Embarcación
-                        </label>
                     </div>
                 </div>
 
@@ -45,9 +41,16 @@
                 <button id="nuevo">Iniciar un nuevo proyecto</button>
             </div>
         </div>
+
+        <div id="mensajeEmergente" class="mensaje-emergente">
+            <p id="mensajeTexto">¡Este es un mensaje personalizado!</p>
+            <button id="cerrarMensaje">Cerrar</button>
+        </div>
+        
     </main>
 
     <script src="js/storage.js"></script>
 
 </body>
+
 </html>
