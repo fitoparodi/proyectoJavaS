@@ -28,7 +28,7 @@ function agregarDispositivo(event) {
     let consumoManual = document.getElementById("consumoManual").value.trim();
 
     if (nombre === "") {
-       mostrarMensaje("puto")
+       mostrarMensaje("probando")
     }
 
     let consumo;
