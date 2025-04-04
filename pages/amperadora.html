@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +8,51 @@
 </head>
 <body>
 
-<main>
-<div class="contenedor">
-    <h1>AMPERADORA</h1>
-    <form>
-    <label for="dispositivo">Dispositivo:</label>
-    <input type="text" id="dispositivo" placeholder="Ejemplo: Heladera">
+    <main>
+        <div class="contenedor">
+            <h1>AMPERADORA</h1>
+            
+            <!-- Información del usuario -->
+            <div id="infoUsuario" class="info-usuario">
+                <p><strong>Usuario:</strong> <span class="dorado" id="nombreUsuario"></span></p>
+                <p><strong>Vehículo:</strong> <span class="dorado" id="nombreVehiculo"></span></p>
+            </div>
 
-    <label for="consumo">Consumo en amperes:</label>
-    <select id="consumo">
-        <option value="">Ingresa un valor o selecciona</option>
-        <option value="no_lo_se">No lo sé</option>
-    </select>
-    <input type="number" id="consumoManual" placeholder="Ejemplo: 5" min="0">
+            <form>
+                <label for="dispositivo">Dispositivo electrónico:</label>
+                <input type="text" id="dispositivo" placeholder="Ejemplo: Heladera">
 
-    <button>Agregar</button>
+                <!-- Título centrado entre los inputs -->
+                <div class="consumo-label">
+                    <label for="consumoManual"><strong>Consumo en amperes:</strong></label>
+                    <small>(si no lo conoces, escribe 0)</small>
+                </div>
+                <input type="number" id="consumoManual" placeholder="Ejemplo: 5" min="0">
 
-    <div class="lista" id="listaDispositivos">
-        <h3>Dispositivos Agregados:</h3>
-        <div id="items"></div>
-    </div>
-    </form>
-</div>
+                <button type="button">Agregar</button>
 
-<div id="mensajeEmergente" class="mensaje-emergente">
-    <p id="mensajeTexto">¡Este es un mensaje personalizado!</p>
-    <button id="cerrarMensaje">Cerrar</button>
-</div>
+                <!-- Lista de dispositivos agregados con fondo blanco -->
+                <div class="lista">
+                    <h3>Dispositivos Agregados:</h3>
+                    <div id="items" class="dispositivos-agregados"></div>
+                </div>
 
-</main>
+                <!-- Botones en la misma línea -->
+                <div class="botones-container">
+                    <button class="saveExp">Guardar</button>
+                    <button class="saveExp">Exportar</button>
+                </div>
+            </form>
+        </div>
 
-<script src="./../js/mensaje.js"></script>
-<script src="./../js/main.js"></script>
+        <div id="mensajeEmergente" class="mensaje-emergente">
+            <p id="mensajeTexto"></p>
+            <button id="cerrarMensaje">Cerrar</button>
+        </div>
+    </main>
+
+    <script src="./../js/mensaje.js"></script>
+    <script src="./../js/main.js"></script>
+
 </body>
 </html>

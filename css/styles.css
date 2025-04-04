@@ -140,4 +140,61 @@ button:hover {
   background-color: darkred;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input, select {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-usuario {
+  background-color: #f0e6d2;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.dorado {
+  color: goldenrod;
+  font-weight: bold;
+}
+
+/* Centrar título "Consumo en amperes" */
+.consumo-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* Cuadro blanco para dispositivos agregados */
+.dispositivos-agregados {
+  width: 100%;
+  margin-top: 10px; /* Para centrarlo horizontalmente */
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Botones en la misma línea */
+.botones-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 5px;
+}
+
+.saveExp {
+  text-align: center;
+}
+
 /*# sourceMappingURL=styles.css.map */

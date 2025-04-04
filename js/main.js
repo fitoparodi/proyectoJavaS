@@ -1,7 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("button").addEventListener("click", agregarDispositivo);
 
-    //probando volver
+    // Mostrar usuario y vehículo al momoento de cargar segunda pagina
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (usuario) {
+        const info = document.getElementById("infoUsuario");
+        info.innerHTML = `
+            <p><strong>Usuario:</strong> ${usuario.nombre}</p>
+            <p><strong>Vehículo:</strong> ${usuario.tipoVehiculo} - ${usuario.nombreVehiculo}</p>
+        `;
+    }
+
+
+    const botonAgregar = document.querySelector("button[type='button']");
+    botonAgregar.addEventListener("click", agregarDispositivo);
+
     history.pushState(null, null, location.href);
 
     window.addEventListener("popstate", function () {
@@ -12,14 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
             history.pushState(null, null, location.href);
         }
 
-    history.pushState(null, null, location.href);
+        history.pushState(null, null, location.href);
 
-    window.addEventListener("popstate", function () {
-        location.reload();
+        window.addEventListener("popstate", function () {
+            location.reload();
 
+        });
     });
 });
-}); 
 
 function agregarDispositivo(event) {
     event.preventDefault();
@@ -28,16 +40,17 @@ function agregarDispositivo(event) {
     let consumoManual = document.getElementById("consumoManual").value.trim();
 
     if (nombre === "") {
-       mostrarMensaje("probando")
+        mostrarMensaje("probando");
+        return;
     }
 
     let consumo;
     if (consumoManual !== "") {
         consumo = parseFloat(consumoManual);
-    } 
+    }
 
     if (isNaN(consumo) || consumo < 0) {
-        alert("Ingresa un consumo válido.");
+        mostrarMensaje("completa gil");
         return;
     }
 
@@ -49,5 +62,5 @@ function agregarDispositivo(event) {
 
     document.getElementById("dispositivo").value = "";
     document.getElementById("consumoManual").value = "";
-    document.getElementById("consumo").value = "";
+
 }
