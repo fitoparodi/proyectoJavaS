@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../css/styles.css">
     <title>Amperadora - Tu calculadora de amperes para equipar tu motorhome - embarcación</title>
 </head>
+
 <body>
 
     <main>
         <div class="contenedor">
             <h1>AMPERADORA</h1>
-            
-            <!-- Información del usuario -->
             <div id="infoUsuario" class="info-usuario">
                 <p><strong>Usuario:</strong> <span class="dorado" id="nombreUsuario"></span></p>
                 <p><strong>Vehículo:</strong> <span class="dorado" id="nombreVehiculo"></span></p>
@@ -21,8 +21,6 @@
             <form>
                 <label for="dispositivo">Dispositivo electrónico:</label>
                 <input type="text" id="dispositivo" placeholder="Ejemplo: Heladera">
-
-                <!-- Título centrado entre los inputs -->
                 <div class="consumo-label">
                     <label for="consumoManual"><strong>Consumo en amperes:</strong></label>
                     <small>(si no lo conoces, escribe 0)</small>
@@ -30,29 +28,35 @@
                 <input type="number" id="consumoManual" placeholder="Ejemplo: 5" min="0">
 
                 <button type="button">Agregar</button>
-
-                <!-- Lista de dispositivos agregados con fondo blanco -->
-                <div class="lista">
+                  <div class="lista">
                     <h3>Dispositivos Agregados:</h3>
                     <div id="items" class="dispositivos-agregados"></div>
                 </div>
-
-                <!-- Botones en la misma línea -->
                 <div class="botones-container">
-                    <button class="saveExp">Guardar</button>
-                    <button class="saveExp">Exportar</button>
+                    <button class="saveExp" type="button" id="guardar">Guardar</button>
+                    <button class="saveExp" type="button" id="exportar">Exportar</button>
                 </div>
+                <button type="button" id="salir">Salir</button>
             </form>
         </div>
+
 
         <div id="mensajeEmergente" class="mensaje-emergente">
             <p id="mensajeTexto"></p>
             <button id="cerrarMensaje">Cerrar</button>
         </div>
+        <div id="mensajeEmergenteSalida" class="mensaje-emergente">
+            <p id="mensajeTextoSalida"></p>
+            <button id="aceptarSalir">Guardar y Salir</button>
+            <button id="noguardarSalir">Salir sin Guardar</button>
+        </div>
     </main>
 
     <script src="./../js/mensaje.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="./../js/exportar.js"></script>
     <script src="./../js/main.js"></script>
 
 </body>
+
 </html>

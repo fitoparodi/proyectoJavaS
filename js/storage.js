@@ -7,18 +7,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let vehiculoSeleccionado = null;
 
 
-
+    function mayusculaPrimera(palabra) {
+        return palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
+    }
 
 
     //verificar si existe usuario
     const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
 
+   
     if (datosGuardados) {
-
+        let nombrenM= mayusculaPrimera(datosGuardados.nombre);
+        let nombreVenM= mayusculaPrimera(datosGuardados.nombreVehiculo);
+    
         formulario.style.display = "none";
         bienvenida.style.display = "block";
-        mensajeBienvenida.innerText = `Bienvenido, ${datosGuardados.nombre}!`;
-        mensaje.innerText = `¿Te gustaría continuar con tu ${datosGuardados.tipoVehiculo} llamado "${datosGuardados.nombreVehiculo}" o iniciar uno nuevo?`;
+        mensajeBienvenida.innerText = `Hola nuevamente, ${nombrenM}!`;
+        mensaje.innerText = `¿Te gustaría continuar con tu ${datosGuardados.tipoVehiculo} llamado "${nombreVenM}" o iniciar uno nuevo?`;
 
     } else {
 
